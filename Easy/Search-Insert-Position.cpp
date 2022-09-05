@@ -9,14 +9,7 @@ You must write an algorithm with O(log n) runtime complexity.
 class Solution {
 public:
     int searchInsert(vector<int>& nums, int target) {
-        auto it = std::lower_bound( std::begin( nums ), std::end( nums ), target );
-
-        if ( it == std::end( nums ) )
-        {
-            it = std::upper_bound( std::begin( nums ), std::end( nums ), target );
-        }
-
-        return std::distance( std::begin( nums ), it );
+        return std::distance( std::begin( nums ), std::lower_bound( std::begin( nums ), std::end( nums ), target ) );
     }
 };
 
